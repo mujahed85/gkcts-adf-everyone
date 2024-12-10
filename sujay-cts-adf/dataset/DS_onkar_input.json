@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "inputemp.txt",
-				"container": "inputemp"
+				"fileName": "inputEmp.txt",
+				"container": "onkarinput"
 			},
 			"columnDelimiter": "|",
 			"escapeChar": "\\",
