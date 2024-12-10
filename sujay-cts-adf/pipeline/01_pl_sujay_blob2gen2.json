@@ -49,13 +49,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_Sujay_blob",
+						"referenceName": "DS_Sujay_blob2gen2_input",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_Sujay_Gen2",
+						"referenceName": "DS_Sujay_Blob2Gen2_Output",
 						"type": "DatasetReference"
 					}
 				]
