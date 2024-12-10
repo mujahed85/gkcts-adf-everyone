@@ -1,0 +1,25 @@
+{
+	"name": "ds_bharath_gen2_output",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Bharath_Gen2",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "02_blob2gen2"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "outputemp"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
