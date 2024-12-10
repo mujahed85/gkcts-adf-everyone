@@ -13,7 +13,7 @@
 				"fileName": "inputemp.txt",
 				"container": "inputemp"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
