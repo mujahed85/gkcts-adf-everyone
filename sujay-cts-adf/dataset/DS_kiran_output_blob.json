@@ -5,6 +5,9 @@
 			"referenceName": "ls_kiran_blob",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "01.Blob2Blob"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
