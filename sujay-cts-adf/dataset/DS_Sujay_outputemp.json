@@ -1,0 +1,22 @@
+{
+	"name": "DS_Sujay_outputemp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sujay_Blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "outputemp"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
