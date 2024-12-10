@@ -5,6 +5,9 @@
 			"referenceName": "ls_rudrani_blob",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "01.blob2blob"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
