@@ -1,12 +1,12 @@
 {
-	"name": "DS_Sujay_inputemp",
+	"name": "DS_Sujay_Blob2Blob_input",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Sujay_Blob",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "1.blob2blob"
+			"name": "1.0-Blob-Blob"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
