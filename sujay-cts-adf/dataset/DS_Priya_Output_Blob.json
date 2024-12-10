@@ -5,6 +5,9 @@
 			"referenceName": "LS_priyad_blob",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "BlobToBlob"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
