@@ -1,0 +1,28 @@
+{
+	"name": "DS_onkar_input",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sujay_Blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "inputemp.txt",
+				"container": "inputemp"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "FirstName|LastName",
+				"type": "String"
+			}
+		]
+	}
+}
