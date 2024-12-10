@@ -1,0 +1,31 @@
+{
+	"name": "ds_bharath_blob_input1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Bharath_Blob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "03_blob2SQL"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "inputEmp.txt",
+				"container": "inputemp"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "FirstName|LastName",
+				"type": "String"
+			}
+		]
+	}
+}
