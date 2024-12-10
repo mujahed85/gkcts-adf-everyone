@@ -5,6 +5,9 @@
 			"referenceName": "LS_Sujay_Blob",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "1.0-Blob-Blob"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
