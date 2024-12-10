@@ -1,0 +1,22 @@
+{
+	"name": "DS_onkar_output",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sujay_Blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "onkaroutput"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
