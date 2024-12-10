@@ -15,7 +15,7 @@
 				"type": "AzureBlobFSLocation",
 				"fileSystem": "output"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
