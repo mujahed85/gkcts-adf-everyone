@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-everyone"
+		},
+		"LS_AdityaBlob_connectionString": {
+			"value": ""
+		},
+		"LS_Bharath_Blob_connectionString": {
+			"value": ""
+		},
+		"LS_Mujahed_Blob_connectionString": {
+			"value": ""
+		},
+		"LS_Mujahed_Gen2_accountKey": {
+			"value": ""
+		},
+		"LS_Sujay_blob_connectionString": {
+			"value": ""
+		},
+		"LS_onkarnew_blob_connectionString": {
+			"value": ""
+		},
+		"Ls_anu_blob_connectionString": {
+			"value": ""
+		},
+		"ls_arnab_blob_connectionString": {
+			"value": ""
+		},
+		"ls_jyothi_blob_connectionString": {
+			"value": ""
+		},
+		"ls_kiran_blob_connectionString": {
+			"value": ""
+		},
+		"ls_priya_blob_connectionString": {
+			"value": ""
+		},
+		"ls_rudrani_blob_connectionString": {
+			"value": ""
+		},
+		"ls_venu_blob_connectionString": {
+			"value": ""
+		},
+		"LS_Mujahed_SQL_password": {
+			"value": ""
+		},
+		"LS_Mujahed_Gen2_properties_typeProperties_url": {
+			"value": "https://sa10decmujahedgen2.dfs.core.windows.net/"
+		},
+		"LS_Mujahed_SQL_properties_typeProperties_server": {
+			"value": "everyone.database.windows.net"
+		},
+		"LS_Mujahed_SQL_properties_typeProperties_database": {
+			"value": "dbeveryone"
+		},
+		"LS_Mujahed_SQL_properties_typeProperties_userName": {
+			"value": "adminuser"
+		}
+	}
+}

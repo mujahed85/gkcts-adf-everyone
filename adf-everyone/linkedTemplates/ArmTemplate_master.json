@@ -1,0 +1,168 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-everyone"
+		},
+		"LS_AdityaBlob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_AdityaBlob'"
+		},
+		"LS_Bharath_Blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Bharath_Blob'"
+		},
+		"LS_Mujahed_Blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Mujahed_Blob'"
+		},
+		"LS_Mujahed_Gen2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Mujahed_Gen2'"
+		},
+		"LS_Sujay_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Sujay_blob'"
+		},
+		"LS_onkarnew_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_onkarnew_blob'"
+		},
+		"Ls_anu_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Ls_anu_blob'"
+		},
+		"ls_arnab_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_arnab_blob'"
+		},
+		"ls_jyothi_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_jyothi_blob'"
+		},
+		"ls_kiran_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_kiran_blob'"
+		},
+		"ls_priya_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_priya_blob'"
+		},
+		"ls_rudrani_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_rudrani_blob'"
+		},
+		"ls_venu_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_venu_blob'"
+		},
+		"LS_Mujahed_SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_Mujahed_SQL'"
+		},
+		"LS_Mujahed_Gen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sa10decmujahedgen2.dfs.core.windows.net/"
+		},
+		"LS_Mujahed_SQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "everyone.database.windows.net"
+		},
+		"LS_Mujahed_SQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "dbeveryone"
+		},
+		"LS_Mujahed_SQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminuser"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-everyone_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_AdityaBlob_connectionString": {
+						"value": "[parameters('LS_AdityaBlob_connectionString')]"
+					},
+					"LS_Bharath_Blob_connectionString": {
+						"value": "[parameters('LS_Bharath_Blob_connectionString')]"
+					},
+					"LS_Mujahed_Blob_connectionString": {
+						"value": "[parameters('LS_Mujahed_Blob_connectionString')]"
+					},
+					"LS_Mujahed_Gen2_accountKey": {
+						"value": "[parameters('LS_Mujahed_Gen2_accountKey')]"
+					},
+					"LS_Sujay_blob_connectionString": {
+						"value": "[parameters('LS_Sujay_blob_connectionString')]"
+					},
+					"LS_onkarnew_blob_connectionString": {
+						"value": "[parameters('LS_onkarnew_blob_connectionString')]"
+					},
+					"Ls_anu_blob_connectionString": {
+						"value": "[parameters('Ls_anu_blob_connectionString')]"
+					},
+					"ls_arnab_blob_connectionString": {
+						"value": "[parameters('ls_arnab_blob_connectionString')]"
+					},
+					"ls_jyothi_blob_connectionString": {
+						"value": "[parameters('ls_jyothi_blob_connectionString')]"
+					},
+					"ls_kiran_blob_connectionString": {
+						"value": "[parameters('ls_kiran_blob_connectionString')]"
+					},
+					"ls_priya_blob_connectionString": {
+						"value": "[parameters('ls_priya_blob_connectionString')]"
+					},
+					"ls_rudrani_blob_connectionString": {
+						"value": "[parameters('ls_rudrani_blob_connectionString')]"
+					},
+					"ls_venu_blob_connectionString": {
+						"value": "[parameters('ls_venu_blob_connectionString')]"
+					},
+					"LS_Mujahed_SQL_password": {
+						"value": "[parameters('LS_Mujahed_SQL_password')]"
+					},
+					"LS_Mujahed_Gen2_properties_typeProperties_url": {
+						"value": "[parameters('LS_Mujahed_Gen2_properties_typeProperties_url')]"
+					},
+					"LS_Mujahed_SQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_Mujahed_SQL_properties_typeProperties_server')]"
+					},
+					"LS_Mujahed_SQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_Mujahed_SQL_properties_typeProperties_database')]"
+					},
+					"LS_Mujahed_SQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_Mujahed_SQL_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
