@@ -43,12 +43,24 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "FirstName|LastName",
+									"name": "FirstName",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "FirstName|LastName",
+									"name": "FirstName",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LastName",
 									"type": "String",
 									"physicalType": "String"
 								}
