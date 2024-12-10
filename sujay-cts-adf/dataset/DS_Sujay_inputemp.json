@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "1.0-Blob-Blob"
+			"name": "1.blob2blob"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
