@@ -1,0 +1,31 @@
+{
+	"name": "DS_onkarblob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sujay_Blob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "2.blo2gen2"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "inputEmp.txt",
+				"container": "onkarinput"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "FirstName|LastName",
+				"type": "String"
+			}
+		]
+	}
+}
