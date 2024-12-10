@@ -1,5 +1,5 @@
 {
-	"name": "p_copy_data_blob2blob",
+	"name": "01_blob2blob",
 	"properties": {
 		"description": "copying data from input blob to output blob",
 		"activities": [

@@ -5,6 +5,9 @@
 			"referenceName": "LS_Bharath_Blob",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "01_blob2blob"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
