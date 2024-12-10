@@ -5,6 +5,9 @@
 			"referenceName": "Ls_anu_blob",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "blob_2_blob"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
