@@ -1,5 +1,5 @@
 {
-	"name": "LS_Sujay_Gen2",
+	"name": "DS_Sujay_Gen2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Sujay_Blob_gen2",
