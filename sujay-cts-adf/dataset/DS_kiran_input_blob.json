@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "inputEMP.txt",
-				"container": "container-input"
+				"container": "inputemp"
 			},
 			"columnDelimiter": "|",
 			"escapeChar": "\\",
