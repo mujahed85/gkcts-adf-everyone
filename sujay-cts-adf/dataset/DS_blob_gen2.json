@@ -1,0 +1,25 @@
+{
+	"name": "DS_blob_gen2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_jyothi_blob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "02.Blob-Gen2"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "outemp"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
