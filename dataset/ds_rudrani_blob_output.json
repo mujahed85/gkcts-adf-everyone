@@ -1,5 +1,5 @@
 {
-	"name": "ds_rudrani_blob_input",
+	"name": "ds_rudrani_blob_output",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_rudrani_blob",
@@ -10,19 +10,13 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "inputemp.txt",
-				"container": "input-container"
+				"container": "output"
 			},
-			"columnDelimiter": "|",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "FirstName|LastName",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
