@@ -5,6 +5,9 @@
 			"referenceName": "ls_jyothi_blob",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "01.Blob2blob"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
