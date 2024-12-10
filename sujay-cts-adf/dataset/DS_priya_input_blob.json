@@ -13,7 +13,7 @@
 				"fileName": "input_emp.txt",
 				"container": "inputdata"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
