@@ -1,5 +1,5 @@
 {
-	"name": "Ds_anu_gen2",
+	"name": "Ds_anu_gen2_input",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Ls_anu_gen2",
