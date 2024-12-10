@@ -5,6 +5,9 @@
 			"referenceName": "LS_AdityaBlob",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "01. Blob_to_Blob"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
