@@ -2,7 +2,7 @@
 	"name": "ds_bharath_blob_output",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_Bharath_Blob",
+			"referenceName": "LS_Bharath_Gen2",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
@@ -12,8 +12,8 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"container": "outputemp"
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "outputemp"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
