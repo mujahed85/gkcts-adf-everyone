@@ -1,0 +1,63 @@
+{
+	"name": "09_ListTables_to_column",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get List of Tables",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "LS_Sujay_SQL",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": "SELECT TABLE_SCHEMA, TABLE_NAME\nFROM dbeveryone.INFORMATION_SCHEMA.TABLES\nWHERE table_type= 'BASE TABLE'"
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			},
+			{
+				"name": "Table Names",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Get List of Tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "",
+					"value": {
+						"value": "@activity('Get List of Tables').output",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"Tables": {
+				"type": "Array"
+			}
+		},
+		"annotations": []
+	}
+}
