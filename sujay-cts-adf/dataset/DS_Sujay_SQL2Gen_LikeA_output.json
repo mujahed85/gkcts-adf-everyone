@@ -13,10 +13,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "sql2gen_likeA_output.txt",
+				"fileName": "sql2gen_likeA_output.csv",
 				"fileSystem": "outputemp"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
 			"escapeChar": "Backslash (\\)",
 			"firstRowAsHeader": true,
 			"quoteChar": "Double quote (\")"
