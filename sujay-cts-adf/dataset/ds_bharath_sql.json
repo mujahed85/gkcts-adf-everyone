@@ -1,12 +1,9 @@
 {
-	"name": "ds_bharath_sql_output",
+	"name": "ds_bharath_sql",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Bharath_SQL",
 			"type": "LinkedServiceReference"
-		},
-		"folder": {
-			"name": "04_gen22SQL"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
