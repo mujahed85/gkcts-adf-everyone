@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT * FROM [dbo].[general]\nwhere FirstName like 'A%'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
