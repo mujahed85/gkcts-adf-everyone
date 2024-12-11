@@ -1,5 +1,5 @@
 {
-	"name": "DS_Sujay_Gen2",
+	"name": "DS_Sujay_Gen2_input",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Sujay_Gen2",
