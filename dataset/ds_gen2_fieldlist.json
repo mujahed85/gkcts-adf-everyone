@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "inputEmp.txt",
 				"fileSystem": "input"
 			},
 			"columnDelimiter": ",",
