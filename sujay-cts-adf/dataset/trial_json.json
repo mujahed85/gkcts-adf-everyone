@@ -1,6 +1,10 @@
 {
 	"name": "trial_json",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sujay_Blob",
+			"type": "LinkedServiceReference"
+		},
 		"folder": {
 			"name": "2.0-Blob-Gen2"
 		},
