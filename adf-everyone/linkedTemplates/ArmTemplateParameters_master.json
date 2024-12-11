@@ -5,12 +5,6 @@
 		"factoryName": {
 			"value": "adf-everyone"
 		},
-		"LS_AdityaBlob_connectionString": {
-			"value": ""
-		},
-		"LS_Bharath_Blob_connectionString": {
-			"value": ""
-		},
 		"LS_Mujahed_Blob_connectionString": {
 			"value": ""
 		},
@@ -18,33 +12,6 @@
 			"value": ""
 		},
 		"LS_Mujahed_SQL_password": {
-			"value": ""
-		},
-		"LS_Sujay_blob_connectionString": {
-			"value": ""
-		},
-		"LS_onkarnew_blob_connectionString": {
-			"value": ""
-		},
-		"Ls_anu_blob_connectionString": {
-			"value": ""
-		},
-		"ls_arnab_blob_connectionString": {
-			"value": ""
-		},
-		"ls_jyothi_blob_connectionString": {
-			"value": ""
-		},
-		"ls_kiran_blob_connectionString": {
-			"value": ""
-		},
-		"ls_priya_blob_connectionString": {
-			"value": ""
-		},
-		"ls_rudrani_blob_connectionString": {
-			"value": ""
-		},
-		"ls_venu_blob_connectionString": {
 			"value": ""
 		},
 		"LS_Mujahed_Gen2_properties_typeProperties_url": {
