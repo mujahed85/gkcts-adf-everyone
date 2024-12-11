@@ -43,13 +43,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_bharath_sql_output",
+						"referenceName": "ds_bharath_sql",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_bharath_gen2_output",
+						"referenceName": "ds_bharath_gen2",
 						"type": "DatasetReference"
 					}
 				]
