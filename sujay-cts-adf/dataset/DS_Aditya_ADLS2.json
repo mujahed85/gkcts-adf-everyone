@@ -5,6 +5,9 @@
 			"referenceName": "LS_Aditya_ADLS_GEN2",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "06. SQL_to_ADLS_Table"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

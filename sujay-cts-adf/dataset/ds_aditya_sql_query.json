@@ -1,12 +1,9 @@
 {
-	"name": "DS_Aditya_SQL",
+	"name": "ds_aditya_sql_query",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Aditya_SQL",
 			"type": "LinkedServiceReference"
-		},
-		"folder": {
-			"name": "06. SQL_to_ADLS_Table"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
@@ -27,7 +24,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "aditya"
+			"table": "general"
 		}
 	}
 }
