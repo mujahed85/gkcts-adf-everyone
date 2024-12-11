@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "sql2gen_likeA_output",
+				"fileName": "likeaoutput",
 				"fileSystem": "outputemp"
 			},
 			"columnDelimiter": ",",
