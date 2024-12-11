@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "9.0-Database_Tables_List"
+			"name": "10.0-Active_Employee-2Tables"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
