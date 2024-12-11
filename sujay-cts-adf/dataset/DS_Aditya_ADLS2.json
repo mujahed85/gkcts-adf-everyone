@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "outpouttable.csv",
+				"fileName": "outpoutquery.csv",
 				"fileSystem": "outputsqltoadls"
 			},
 			"columnDelimiter": ",",
