@@ -19,7 +19,7 @@
 			"columnDelimiter": "|",
 			"escapeChar": "Backslash (\\)",
 			"firstRowAsHeader": true,
-			"quoteChar": "Double quote (\")"
+			"quoteChar": "\""
 		},
 		"schema": [
 			{
