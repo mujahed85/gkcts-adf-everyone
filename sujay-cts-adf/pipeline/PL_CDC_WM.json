@@ -113,7 +113,10 @@
 				"outputs": [
 					{
 						"referenceName": "DS_Mujahed_Gen2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileOutputName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')"
+						}
 					}
 				]
 			},
