@@ -5,6 +5,9 @@
 			"referenceName": "LS_Priya_AzureSql",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "BlobToSql"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
