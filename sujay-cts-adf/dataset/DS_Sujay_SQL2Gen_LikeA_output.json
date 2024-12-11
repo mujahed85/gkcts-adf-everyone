@@ -13,11 +13,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "likeaoutput",
+				"fileName": "sql2gen_likeA_output",
 				"fileSystem": "outputemp"
 			},
 			"columnDelimiter": ",",
-			"encodingName": "UTF-8",
 			"escapeChar": "Backslash (\\)",
 			"firstRowAsHeader": true,
 			"quoteChar": "Double quote (\")"
