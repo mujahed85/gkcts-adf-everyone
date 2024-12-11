@@ -5,9 +5,6 @@
 			"referenceName": "LS_onkar_azsqlnew",
 			"type": "LinkedServiceReference"
 		},
-		"folder": {
-			"name": "4.sqltogen2"
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [

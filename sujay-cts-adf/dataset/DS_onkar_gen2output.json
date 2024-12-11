@@ -5,9 +5,6 @@
 			"referenceName": "LS_onkar_gen2",
 			"type": "LinkedServiceReference"
 		},
-		"folder": {
-			"name": "4.sqltogen2"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
