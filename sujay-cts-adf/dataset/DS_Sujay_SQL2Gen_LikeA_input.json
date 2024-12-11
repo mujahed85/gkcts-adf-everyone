@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "6.0-SQL2Gen2_Like_A%"
+			"name": "6.0-SQL2Gen2_Like_A"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
