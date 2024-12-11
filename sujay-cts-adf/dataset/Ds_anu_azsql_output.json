@@ -1,5 +1,5 @@
 {
-	"name": "Ds_anu_output_sql",
+	"name": "Ds_anu_azsql_output",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Ls_anu_gen2",
