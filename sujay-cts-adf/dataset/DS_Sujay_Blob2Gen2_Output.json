@@ -1,10 +1,6 @@
 {
 	"name": "DS_Sujay_Blob2Gen2_Output",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_Sujay_Blob_gen2",
-			"type": "LinkedServiceReference"
-		},
 		"folder": {
 			"name": "2.0-Blob-Gen2"
 		},
