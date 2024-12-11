@@ -30,7 +30,7 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -50,13 +50,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_bharath_blob_input",
+						"referenceName": "ds_bharath_blob",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_bharath_blob_output",
+						"referenceName": "ds_bharath_blob",
 						"type": "DatasetReference"
 					}
 				]
