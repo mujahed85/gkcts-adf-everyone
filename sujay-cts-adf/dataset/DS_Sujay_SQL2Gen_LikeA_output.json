@@ -13,12 +13,15 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "sql2gen_likeA_output.csv",
 				"fileSystem": "outputemp"
 			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
+			"columnDelimiter": "Comma (,)",
+			"rowDelimiter": "Default (\r,\n, or \r\n)",
+			"encodingName": "Default(UTF-8)",
+			"escapeChar": "Backslash (\\)",
 			"firstRowAsHeader": true,
-			"quoteChar": "\""
+			"quoteChar": "Double quote (\")"
 		},
 		"schema": [
 			{
