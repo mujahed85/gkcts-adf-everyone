@@ -39,7 +39,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_Sujay_blob",
+						"referenceName": "DS_Sujay_Blob2Blob_input",
 						"type": "DatasetReference"
 					}
 				],
