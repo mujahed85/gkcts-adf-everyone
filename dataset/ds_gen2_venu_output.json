@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "dbo.general.csv",
+				"fileName": "t1active",
 				"fileSystem": "output"
 			},
 			"columnDelimiter": ",",
