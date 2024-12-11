@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().FileOutputName",
+					"value": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
 					"type": "Expression"
 				},
 				"fileSystem": "inputemp"
