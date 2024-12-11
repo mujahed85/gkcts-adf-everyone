@@ -1,9 +1,9 @@
 {
-	"name": "pipeline4",
+	"name": "azsqltogen2",
 	"properties": {
 		"activities": [
 			{
-				"name": "azsqlquerytogen2",
+				"name": "PL_onkar_sqltogen2",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -17,7 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT * FROM dbo.general\nwhere FirstName like 'A%'\n ",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -44,13 +43,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_onkar_selectquery_input",
+						"referenceName": "DS_onkar_azsql",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_onkar_gen2_query_output",
+						"referenceName": "DS_onkar_gen2_input",
 						"type": "DatasetReference"
 					}
 				]
