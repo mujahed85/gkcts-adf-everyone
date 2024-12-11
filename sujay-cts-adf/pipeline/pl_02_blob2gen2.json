@@ -4,7 +4,7 @@
 		"description": "adding a pipeline to copy the data from blob to gen2",
 		"activities": [
 			{
-				"name": "copy the data from blob to gen2",
+				"name": "copy the data from gen2 to gen2",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -19,7 +19,7 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
+							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
