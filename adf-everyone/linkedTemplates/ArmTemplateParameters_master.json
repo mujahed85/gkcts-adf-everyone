@@ -17,6 +17,9 @@
 		"LS_Mujahed_Gen2_accountKey": {
 			"value": ""
 		},
+		"LS_Mujahed_SQL_password": {
+			"value": ""
+		},
 		"LS_Sujay_blob_connectionString": {
 			"value": ""
 		},
@@ -42,9 +45,6 @@
 			"value": ""
 		},
 		"ls_venu_blob_connectionString": {
-			"value": ""
-		},
-		"LS_Mujahed_SQL_password": {
 			"value": ""
 		},
 		"LS_Mujahed_Gen2_properties_typeProperties_url": {

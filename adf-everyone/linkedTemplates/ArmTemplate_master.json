@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_Mujahed_Gen2'"
 		},
+		"LS_Mujahed_SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_Mujahed_SQL'"
+		},
 		"LS_Sujay_blob_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_Sujay_blob'"
@@ -58,10 +62,6 @@
 		"ls_venu_blob_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_venu_blob'"
-		},
-		"LS_Mujahed_SQL_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_Mujahed_SQL'"
 		},
 		"LS_Mujahed_Gen2_properties_typeProperties_url": {
 			"type": "string",
@@ -118,6 +118,9 @@
 					"LS_Mujahed_Gen2_accountKey": {
 						"value": "[parameters('LS_Mujahed_Gen2_accountKey')]"
 					},
+					"LS_Mujahed_SQL_password": {
+						"value": "[parameters('LS_Mujahed_SQL_password')]"
+					},
 					"LS_Sujay_blob_connectionString": {
 						"value": "[parameters('LS_Sujay_blob_connectionString')]"
 					},
@@ -144,9 +147,6 @@
 					},
 					"ls_venu_blob_connectionString": {
 						"value": "[parameters('ls_venu_blob_connectionString')]"
-					},
-					"LS_Mujahed_SQL_password": {
-						"value": "[parameters('LS_Mujahed_SQL_password')]"
 					},
 					"LS_Mujahed_Gen2_properties_typeProperties_url": {
 						"value": "[parameters('LS_Mujahed_Gen2_properties_typeProperties_url')]"

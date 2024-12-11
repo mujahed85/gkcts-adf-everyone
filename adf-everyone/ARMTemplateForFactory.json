@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_Mujahed_Gen2'"
 		},
+		"LS_Mujahed_SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_Mujahed_SQL'"
+		},
 		"LS_Sujay_blob_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_Sujay_blob'"
@@ -58,10 +62,6 @@
 		"ls_venu_blob_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_venu_blob'"
-		},
-		"LS_Mujahed_SQL_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_Mujahed_SQL'"
 		},
 		"LS_Mujahed_Gen2_properties_typeProperties_url": {
 			"type": "string",
@@ -162,6 +162,42 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DS_Mujahed_Blob_Input')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Mujahed_Blob",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "03.Blob2SQL"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "inputEmp.txt",
+						"container": "inputblob"
+					},
+					"columnDelimiter": "|",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "FirstName|LastName",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_Mujahed_Blob')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_Mujahed_Input_Blob')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -228,6 +264,44 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DS_Mujahed_SQL_Output')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Mujahed_SQL",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "03.Blob2SQL"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "FirstName",
+						"type": "varchar"
+					},
+					{
+						"name": "LastName",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "emujahed"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_Mujahed_SQL')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_AdityaBlob')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -278,6 +352,28 @@
 					"accountKey": {
 						"type": "SecureString",
 						"value": "[parameters('LS_Mujahed_Gen2_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_Mujahed_SQL')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('LS_Mujahed_SQL_properties_typeProperties_server')]",
+					"database": "[parameters('LS_Mujahed_SQL_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_Mujahed_SQL_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_Mujahed_SQL_password')]"
 					}
 				}
 			},
@@ -401,48 +497,23 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/LS_Mujahed_SQL')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"server": "[parameters('LS_Mujahed_SQL_properties_typeProperties_server')]",
-					"database": "[parameters('LS_Mujahed_SQL_properties_typeProperties_database')]",
-					"encrypt": "mandatory",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('LS_Mujahed_SQL_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LS_Mujahed_SQL_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_Mujahed_Blob_Input')]",
+			"name": "[concat(parameters('factoryName'), '/DS_Mujahed_Gen2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "LS_Mujahed_Blob",
+					"referenceName": "LS_Mujahed_Gen2",
 					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "03.Blob2SQL"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobStorageLocation",
+						"type": "AzureBlobFSLocation",
 						"fileName": "inputEmp.txt",
-						"container": "inputblob"
+						"fileSystem": "inputemp"
 					},
-					"columnDelimiter": "|",
+					"columnDelimiter": ",",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
@@ -455,7 +526,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_Mujahed_Blob')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_Mujahed_Gen2')]"
 			]
 		}
 	]
