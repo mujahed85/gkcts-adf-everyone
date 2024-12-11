@@ -17,11 +17,12 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select table_schema,table_name from\ndbeveryone.information_schema.tables\nwhere table_type='BASE TABLE'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "ds_rudrani_sql_firstname_A",
+						"referenceName": "ds_rudrani_sql",
 						"type": "DatasetReference"
 					}
 				}
