@@ -2,7 +2,7 @@
 	"name": "DS_blob_gen2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_jyothi_blob",
+			"referenceName": "LS_Jyothi_Gen2",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
@@ -12,8 +12,9 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"container": "outemp"
+				"type": "AzureBlobFSLocation",
+				"fileName": "inputemp1.txt",
+				"fileSystem": "inputemp1"
 			},
 			"columnDelimiter": "|",
 			"escapeChar": "\\",
