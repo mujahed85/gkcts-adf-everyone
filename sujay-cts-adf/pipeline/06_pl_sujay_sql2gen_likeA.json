@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data 1",
+				"name": "Copy data feom SQL to Gen2 with name like A",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -50,7 +50,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_Sujay_Gen2",
+						"referenceName": "DS_Sujay_SQL2Gen_LikeA_output",
 						"type": "DatasetReference"
 					}
 				]
