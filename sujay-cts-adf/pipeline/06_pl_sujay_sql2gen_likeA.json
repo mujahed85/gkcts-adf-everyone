@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data feom SQL to Gen2 Like A",
+				"name": "Copy data 1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT * FROM dbo.general \nwhere FirstName like 'A%'\n ",
+						"sqlReaderQuery": "SELECT * FROM dbo.general \nwhere FirstName like 'A%'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -50,7 +50,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_Sujay_SQL2Gen_LikeA_output",
+						"referenceName": "DS_Sujay_Gen2",
 						"type": "DatasetReference"
 					}
 				]
