@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "sql2gen_likeA_output.csv",
+				"fileName": "sql2gen_likeA_output.txt",
 				"fileSystem": "outputemp"
 			},
 			"columnDelimiter": ",",
