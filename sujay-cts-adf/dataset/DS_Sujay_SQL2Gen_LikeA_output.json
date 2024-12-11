@@ -16,8 +16,7 @@
 				"fileName": "sql2gen_likeA_output.csv",
 				"fileSystem": "outputemp"
 			},
-			"columnDelimiter": "Comma (,)",
-			"rowDelimiter": "Default (\r,\n, or \r\n)",
+			"columnDelimiter": ",",
 			"encodingName": "Default(UTF-8)",
 			"escapeChar": "Backslash (\\)",
 			"firstRowAsHeader": true,
