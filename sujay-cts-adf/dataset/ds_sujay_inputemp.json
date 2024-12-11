@@ -1,10 +1,6 @@
 {
 	"name": "ds_sujay_inputemp",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_Sujay_blob",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
