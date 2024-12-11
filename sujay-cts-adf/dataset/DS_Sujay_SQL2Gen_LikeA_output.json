@@ -17,7 +17,7 @@
 				"fileSystem": "outputemp"
 			},
 			"columnDelimiter": ",",
-			"encodingName": "Default(UTF-8)",
+			"encodingName": "UTF-8",
 			"escapeChar": "Backslash (\\)",
 			"firstRowAsHeader": true,
 			"quoteChar": "Double quote (\")"
