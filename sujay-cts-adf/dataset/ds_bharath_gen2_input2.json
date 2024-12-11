@@ -1,18 +1,22 @@
 {
-	"name": "ds_bharath_gen2_input",
+	"name": "ds_bharath_gen2_input2",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Bharath_Gen2",
+			"type": "LinkedServiceReference"
+		},
 		"folder": {
-			"name": "02_blob2gen2"
+			"name": "04_gen22SQL"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
+				"type": "AzureBlobFSLocation",
 				"fileName": "inputEmp.txt",
-				"container": "inputemp"
+				"fileSystem": "inputemp"
 			},
-			"columnDelimiter": "|",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
