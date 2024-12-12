@@ -79,6 +79,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select * from dst_ \nwhere \n\tLastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
