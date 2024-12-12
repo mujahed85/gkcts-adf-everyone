@@ -13,7 +13,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "inputemp.txt",
 				"fileSystem": {
 					"value": "output_wm_idl_arnab",
 					"type": "Expression"
@@ -22,7 +21,7 @@
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": {
-				"value": "@concat('IDL_WM_',pipeline().RunId,'.txt')",
+				"value": "@concat('IDL-WM-',pipeline().RunId,'.txt')",
 				"type": "Expression"
 			},
 			"quoteChar": "\""
