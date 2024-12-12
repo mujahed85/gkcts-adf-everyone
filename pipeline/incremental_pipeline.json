@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "source_main",
+				"name": "LookupOldWaterMarkActivity",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "watermark_count1",
+				"name": "LookupNewWaterMarkActivity",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -56,13 +56,13 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "source_main",
+						"activity": "LookupOldWaterMarkActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "watermark_count1",
+						"activity": "LookupNewWaterMarkActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -80,7 +80,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from dst_onkar\n\nwhere \n\n\tLastModifytime > '@{activity('source_main').output.firstRow.WatermarkValue}' \n\n\tand \n\nLastModifytime <= '@{activity('watermark_count1').output.firstRow.NewWatermarkvalue}'\n ",
+							"value": "select * from dst_onkar\n\nwhere \n\n\tLastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' \n\n\tand \n\nLastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'\n ",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -138,15 +138,22 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [],
 				"typeProperties": {
 					"storedProcedureName": "[dbo].[usp_write_wm_onkar]",
 					"storedProcedureParameters": {
 						"LastModifytime": {
-							"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue\n ",
+							"value": {
+								"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue\n ",
+								"type": "Expression"
+							},
 							"type": "Datetime"
 						},
 						"TableName": {
-							"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+							"value": {
+								"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+								"type": "Expression"
+							},
 							"type": "String"
 						}
 					}
