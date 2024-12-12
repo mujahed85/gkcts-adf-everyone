@@ -5,6 +5,9 @@
 			"referenceName": "LS_Sujay_Gen2",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "IDL_Timestamp"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
