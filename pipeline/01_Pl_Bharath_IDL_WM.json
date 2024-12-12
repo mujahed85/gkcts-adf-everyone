@@ -114,7 +114,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "WaterMarkDataset",
+						"referenceName": "DS_WM_Bharath_Source",
 						"type": "DatasetReference"
 					}
 				],
