@@ -86,9 +86,15 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -108,7 +114,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_WM_Bharath_Sink",
+						"referenceName": "DS_Bharath_Gen2_Sink",
 						"type": "DatasetReference"
 					}
 				]
