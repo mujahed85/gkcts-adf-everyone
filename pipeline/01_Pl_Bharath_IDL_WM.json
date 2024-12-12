@@ -47,7 +47,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "WaterMarkDataset",
+						"referenceName": "DS_WM_Bharath_Source",
 						"type": "DatasetReference"
 					}
 				}
