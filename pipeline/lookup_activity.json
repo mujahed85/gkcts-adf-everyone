@@ -121,7 +121,7 @@
 				]
 			},
 			{
-				"name": "stored_procedure_to_write_watermark_activity",
+				"name": "stored_procedure_to_write_wm_activity",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -143,8 +143,12 @@
 					"storedProcedureName": "[dbo].[usp_write_wm_arnab]",
 					"storedProcedureParameters": {
 						"LastModifiedDate": {
-							"value": "",
+							"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue",
 							"type": "Datetime"
+						},
+						"Table Name": {
+							"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+							"type": "String"
 						}
 					}
 				},
