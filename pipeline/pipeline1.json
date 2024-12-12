@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup_oldwma",
+				"name": "LookupOldWaterMarkActivity",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "Lookup_newwma",
+				"name": "LookupNewWaterMarkActivity",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -52,17 +52,17 @@
 				}
 			},
 			{
-				"name": "Copydata_watermarkactivity",
+				"name": "IncrementalCopyActivity",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Lookup_oldwma",
+						"activity": "LookupOldWaterMarkActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Lookup_newwma",
+						"activity": "LookupNewWaterMarkActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -80,7 +80,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from dst_anu \nwhere \n\tLastModifytime > '@{activity('Lookup_oldwma').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('Lookup_Newwma').output.firstRow.NewWatermarkvalue}'",
+							"value": "select * from dst_anu \nwhere \n\tLastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -125,7 +125,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Copydata_watermarkactivity",
+						"activity": "IncrementalCopyActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -140,7 +140,17 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[usp_write_wm_anu]"
+					"storedProcedureName": "[dbo].[usp_write_wm_anu]",
+					"storedProcedureParameters": {
+						"WatermarkValue": {
+							"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue",
+							"type": "Datetime"
+						},
+						"TableName": {
+							"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+							"type": "String"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "Ls_anu_sql_IDL",

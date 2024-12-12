@@ -2,7 +2,7 @@
 	"name": "Ds_gen2_anu_wma",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Ls_anu_gen2_IDL",
+			"referenceName": "Ls_gen2_Idl_anu",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -12,10 +12,12 @@
 				"type": "AzureBlobFSLocation",
 				"fileSystem": "ouptut-wm-idl-mujahed"
 			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
+			"columnDelimiter": "Comma (,)",
+			"rowDelimiter": "Default (\r,\n, or \r\n)",
+			"encodingName": "Default(UTF-8)",
+			"escapeChar": "Backslash (\\)",
 			"firstRowAsHeader": true,
-			"quoteChar": "\""
+			"quoteChar": "Double quote (\")"
 		},
 		"schema": []
 	}
