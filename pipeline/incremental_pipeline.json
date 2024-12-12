@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_sql_onkar_source",
+						"referenceName": "watermarkdatase",
 						"type": "DatasetReference"
 					}
 				}
@@ -46,7 +46,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "watermarkdatase",
+						"referenceName": "DS_sql_onkar_source",
 						"type": "DatasetReference"
 					}
 				}
