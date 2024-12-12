@@ -140,7 +140,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[usp_write_wm_mujahed]",
+					"storedProcedureName": "[dbo].[usp_write_wm_sujay]",
 					"storedProcedureParameters": {
 						"LastModifiedtime": {
 							"value": {
