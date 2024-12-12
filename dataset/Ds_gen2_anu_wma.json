@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat('Idl_anu_wma',pipeline().RunId,'txt')",
+					"value": "@concat('Idl_anu_wma',pipeline().RunId,'.txt')",
 					"type": "Expression"
 				},
 				"fileSystem": "ouptut-wm-idl-mujahed"
