@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "@concat('IDL-WM-',pipeline().RunId,'.txt')",
 				"fileSystem": "ouptut-wm-idl-mujahed"
 			},
 			"columnDelimiter": "Comma (,)",
