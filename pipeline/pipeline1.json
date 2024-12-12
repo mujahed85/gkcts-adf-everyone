@@ -52,7 +52,7 @@
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "Copy data incremental load",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -79,7 +79,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from dst_aditya\nwhere \n  LastModifytime > '@{activity('lookupoldWatermarkactivity').output.firstRow.WatermarkValue}' \n  and \nLastModifytime <= '@{activity('lookupnewwatermarkactivity').output.firstRow.NewWatermarkvalue}'",
+						"sqlReaderQuery": {
+							"value": "select * from dst_aditya\nwhere \n  LastModifytime > '@{activity('lookupoldWatermarkactivity').output.firstRow.WatermarkValue}' \n  and \nLastModifytime <= '@{activity('lookupnewwatermarkactivity').output.firstRow.NewWatermarkvalue}'",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -120,7 +123,14 @@
 			{
 				"name": "Stored procedure Aditya",
 				"type": "SqlServerStoredProcedure",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Copy data incremental load",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -130,7 +140,23 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[usp_write_wm_Aditya]"
+					"storedProcedureName": "[dbo].[usp_write_wm_Aditya]",
+					"storedProcedureParameters": {
+						"LastModifiedtime": {
+							"value": {
+								"value": "@activity('lookupnewwatermarkactivity').output.firstRow.NewWatermarkvalue",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						},
+						"TableName": {
+							"value": {
+								"value": "@activity('lookupoldwatermarkactivity').output.firstRow.TableName",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_Aditya_SQL_IDL_DW",
