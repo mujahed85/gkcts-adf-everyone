@@ -1,10 +1,6 @@
 {
 	"name": "DS_Mujahed_SQL_FirstName_A",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_Mujahed_SQL",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [

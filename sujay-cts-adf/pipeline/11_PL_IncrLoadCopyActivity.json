@@ -97,25 +97,11 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "SourceDSLMTBetween",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DS_Mujahed_Gen2",
 						"type": "DatasetReference"
 					}
 				]
@@ -157,10 +143,6 @@
 							"type": "String"
 						}
 					}
-				},
-				"linkedServiceName": {
-					"referenceName": "LS_Mujahed_SQL",
-					"type": "LinkedServiceReference"
 				}
 			}
 		],

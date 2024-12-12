@@ -1,10 +1,6 @@
 {
 	"name": "SQL_dataSourceTable",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_Mujahed_SQL",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
