@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "incremental_pipeline",
 	"properties": {
 		"activities": [
 			{
@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from dst_bharath\n ",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
