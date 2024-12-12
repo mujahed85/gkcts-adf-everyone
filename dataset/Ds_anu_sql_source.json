@@ -21,7 +21,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "wmt_anu"
+			"table": "dst_anu"
 		}
 	}
 }
