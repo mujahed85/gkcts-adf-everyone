@@ -1,10 +1,6 @@
 {
 	"name": "DS_onkar_gen2_query_output",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_onkar_gen2",
-			"type": "LinkedServiceReference"
-		},
 		"folder": {
 			"name": "4.sqlquerytogen2"
 		},
