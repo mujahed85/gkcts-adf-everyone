@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "lookup_old_wm_activity",
+				"name": "lu_old_wm_activity",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -56,7 +56,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "lookup_old_wm_activity",
+						"activity": "lu_old_wm_activity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
