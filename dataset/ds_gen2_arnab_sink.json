@@ -1,0 +1,37 @@
+{
+	"name": "ds_gen2_arnab_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_arnab_gen2_idl_wm",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "02_sink_ds"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "inputemp.txt",
+				"fileSystem": {
+					"value": "output_wm_idl_arnab",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": {
+				"value": "@concat('IDL_WM_',pipeline().RunId,'.txt')",
+				"type": "Expression"
+			},
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "FirstName|LastName",
+				"type": "String"
+			}
+		]
+	}
+}
