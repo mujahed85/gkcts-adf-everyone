@@ -1,12 +1,9 @@
 {
-	"name": "Ds_anu_azsql_input",
+	"name": "DS_anu_sql_firstname",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Ls_anu_azsql",
 			"type": "LinkedServiceReference"
-		},
-		"folder": {
-			"name": "Azsql"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
@@ -27,7 +24,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "anupriya"
+			"table": "general"
 		}
 	}
 }

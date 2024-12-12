@@ -1,9 +1,9 @@
 {
-	"name": "03sql_gen2_pipeline",
+	"name": "04gen2_sql",
 	"properties": {
 		"activities": [
 			{
-				"name": "sql_gen2_pipeline",
+				"name": "Copy data1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -16,20 +16,20 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"sink": {
-						"type": "DelimitedTextSink",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"type": "DelimitedTextReadSettings"
 						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -43,13 +43,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Ds_anu_azsql_input",
+						"referenceName": "Ds_anu_gen2_input",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Ds_anu_azsql_output",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					}
 				]

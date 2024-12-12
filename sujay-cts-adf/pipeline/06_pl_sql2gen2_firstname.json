@@ -1,9 +1,9 @@
 {
-	"name": "03sql_gen2_pipeline",
+	"name": "06_pl_sql2gen2_firstname",
 	"properties": {
 		"activities": [
 			{
-				"name": "sql_gen2_pipeline",
+				"name": "pl__query_firstname",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT * FROM dbo.general \nwhere FirstName like 'A%'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -43,13 +44,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Ds_anu_azsql_input",
+						"referenceName": "DS_anu_sql_firstname",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Ds_anu_azsql_output",
+						"referenceName": "Ds_anu_gen2_output",
 						"type": "DatasetReference"
 					}
 				]

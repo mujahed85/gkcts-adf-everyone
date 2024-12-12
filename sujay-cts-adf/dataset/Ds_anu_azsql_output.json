@@ -5,12 +5,14 @@
 			"referenceName": "Ls_anu_gen2",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Azsql"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileSystem": "outputemp"
+				"type": "AzureBlobFSLocation"
 			},
 			"columnDelimiter": "|",
 			"escapeChar": "\\",

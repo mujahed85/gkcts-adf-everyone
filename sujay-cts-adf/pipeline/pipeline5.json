@@ -1,9 +1,9 @@
 {
-	"name": "03sql_gen2_pipeline",
+	"name": "pipeline5",
 	"properties": {
 		"activities": [
 			{
-				"name": "sql_gen2_pipeline",
+				"name": "pl_filesname",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -43,13 +43,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Ds_anu_azsql_input",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Ds_anu_azsql_output",
+						"referenceName": "Ds_anu_gen2_output",
 						"type": "DatasetReference"
 					}
 				]

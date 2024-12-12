@@ -1,12 +1,9 @@
 {
-	"name": "Ds_anu_azsql_input",
+	"name": "AzureSqlTable1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Ls_anu_azsql",
 			"type": "LinkedServiceReference"
-		},
-		"folder": {
-			"name": "Azsql"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
