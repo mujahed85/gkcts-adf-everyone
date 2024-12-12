@@ -123,7 +123,14 @@
 			{
 				"name": "Stored procedure1",
 				"type": "SqlServerStoredProcedure",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "copy_incremetal",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -132,7 +139,17 @@
 					"secureInput": false
 				},
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[usp_write_wm_onkar]"
+					"storedProcedureName": "[dbo].[usp_write_wm_onkar]",
+					"storedProcedureParameters": {
+						"LastModifytime": {
+							"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue\n ",
+							"type": "Datetime"
+						},
+						"TableName": {
+							"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+							"type": "String"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_onkar_WM_azsql",
