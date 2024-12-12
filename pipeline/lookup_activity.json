@@ -1,5 +1,5 @@
 {
-	"name": "lu_old_activity",
+	"name": "lookup_activity",
 	"properties": {
 		"activities": [
 			{
@@ -21,7 +21,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "ds_wm_arnab",
+						"referenceName": "watermarkDataset",
 						"type": "DatasetReference"
 					}
 				}
@@ -97,25 +97,11 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "ds_arnab_sql_source",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ds_gen2_arnab_sink",
 						"type": "DatasetReference"
 					}
 				]
