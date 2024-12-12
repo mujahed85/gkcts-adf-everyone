@@ -17,7 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from dst_onkar",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -42,6 +41,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select * from dst_ \n\nwhere \n\n\tLastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' \n\n\tand \n\nLastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'\n ",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
