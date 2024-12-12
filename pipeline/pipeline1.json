@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from dst_anu",
+						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from dst_anu\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -117,7 +117,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from dst_anu\nwhere \n\tLastModifytime > '@{activity('Lookup_OldWaterMarkActivity').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('Lookup_NewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'\n",
+							"value": "select * from dbo.dst_anu\nwhere \n\tLastModifytime > '@{activity('Lookup_OldWaterMarkActivity').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('Lookup_NewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
