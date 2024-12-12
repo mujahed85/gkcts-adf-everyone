@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "ds_rudrani_sql",
+						"referenceName": "ds_t1_active",
 						"type": "DatasetReference"
 					}
 				}
