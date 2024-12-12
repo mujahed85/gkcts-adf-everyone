@@ -10,14 +10,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@concat('IDL_WM',pipeline().RunId,'.txt')",
-					"type": "Expression"
-				},
 				"fileSystem": "outputwma"
 			},
 			"columnDelimiter": "Comma (,)",
-			"rowDelimiter": "Default (\r,\n, or \r\n)",
 			"encodingName": "Default(UTF-8)",
 			"escapeChar": "Backslash (\\)",
 			"firstRowAsHeader": true,
