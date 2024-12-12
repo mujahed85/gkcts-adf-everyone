@@ -7,7 +7,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Lookup1",
+						"activity": "Lookuptable1active",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -63,7 +63,7 @@
 				]
 			},
 			{
-				"name": "Lookup1",
+				"name": "Lookuptable1active",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
