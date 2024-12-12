@@ -2,7 +2,7 @@
 	"name": "Ds_gen2_anu_wma",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Ls_gen2_Idl_anu",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "ouptut-wm-idl-mujahed"
+				"fileName": {
+					"value": "@concat('IDL_WM',pipeline().RunId,'.txt')",
+					"type": "Expression"
+				},
+				"fileSystem": "outputwma"
 			},
 			"columnDelimiter": "Comma (,)",
 			"rowDelimiter": "Default (\r,\n, or \r\n)",
