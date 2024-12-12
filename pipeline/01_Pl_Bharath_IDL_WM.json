@@ -21,7 +21,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_WM_Bharath_Source",
+						"referenceName": "WaterMarkDataset",
 						"type": "DatasetReference"
 					}
 				}
@@ -148,11 +148,17 @@
 					"storedProcedureName": "[dbo].[usp_write_wm_bharath]",
 					"storedProcedureParameters": {
 						"LastModifiedtime": {
-							"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue",
+							"value": {
+								"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue",
+								"type": "Expression"
+							},
 							"type": "Datetime"
 						},
 						"TableName": {
-							"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+							"value": {
+								"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+								"type": "Expression"
+							},
 							"type": "String"
 						}
 					}
