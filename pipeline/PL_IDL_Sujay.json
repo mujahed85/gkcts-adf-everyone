@@ -121,7 +121,7 @@
 				]
 			},
 			{
-				"name": "Stored procedure1",
+				"name": "SP_2Write_WMAct",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [],
 				"policy": {
@@ -131,7 +131,30 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_write_wm_mujahed]",
+					"storedProcedureParameters": {
+						"LastModifiedtime": {
+							"value": {
+								"value": "@activity('LU_New_Watermark').output.firstRow.NewWatermarkvalue",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						},
+						"TableName": {
+							"value": {
+								"value": "@activity('LU_Old_Watermark').output.firstRow.TableName",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_Sujay_SQL",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
