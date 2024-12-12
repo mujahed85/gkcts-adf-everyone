@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "lookup_old_activity",
+				"name": "lookup_old_wm_activity",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -21,7 +21,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "ds_arnab_sql_source",
+						"referenceName": "ds_wm_arnab",
 						"type": "DatasetReference"
 					}
 				}
