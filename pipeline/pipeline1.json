@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "LookupOldWaterMarkActivity",
+				"name": "Lookup_OldWaterMarkActivity",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "LookupNewWaterMarkActivity",
+				"name": "Lookup_NewWaterMarkActivity",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -52,17 +52,54 @@
 				}
 			},
 			{
-				"name": "Incremental_CopyActivity",
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Incremental_copydata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_write_wm_anu]",
+					"storedProcedureParameters": {
+						"WatermarkValue": {
+							"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue",
+							"type": "Datetime"
+						},
+						"TableName": {
+							"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Ls_anu_sql_IDL",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Incremental_copydata",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "LookupOldWaterMarkActivity",
+						"activity": "Lookup_OldWaterMarkActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "LookupNewWaterMarkActivity",
+						"activity": "Lookup_NewWaterMarkActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -80,7 +117,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from dst_anu \nwhere \n\tLastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
+							"value": "select * from dst_anu\nwhere \n\tLastModifytime > '@{activity('Lookup_OldWaterMarkActivity').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('Lookup_NewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -119,43 +156,6 @@
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "Stored procedure1",
-				"type": "SqlServerStoredProcedure",
-				"dependsOn": [
-					{
-						"activity": "Incremental_CopyActivity",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"storedProcedureName": "[dbo].[usp_write_wm_anu]",
-					"storedProcedureParameters": {
-						"WatermarkValue": {
-							"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue",
-							"type": "Datetime"
-						},
-						"TableName": {
-							"value": "@activity('LookupOldWaterMarkActivity').output.firstRow.TableName",
-							"type": "String"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "Ls_anu_sql_IDL",
-					"type": "LinkedServiceReference"
-				}
 			}
 		],
 		"parameters": {
