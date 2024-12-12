@@ -52,7 +52,7 @@
 				}
 			},
 			{
-				"name": "IncrementalCopyActivity",
+				"name": "Incremental_CopyActivity",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -125,7 +125,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "IncrementalCopyActivity",
+						"activity": "Incremental_CopyActivity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
