@@ -137,7 +137,12 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[usp_write_wm_arnab]"
+					"storedProcedureName": "[dbo].[usp_write_wm_arnab]",
+					"storedProcedureParameters": {
+						"undefined": {
+							"value": ""
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "ls_arnab_sql_idl_wm",
