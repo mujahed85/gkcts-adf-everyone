@@ -80,7 +80,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from dbo.dst_Priya\nwhere \n\tLastModifytime > '@{activity('Lookup old WMT data').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('Lookup dst for New').output.output.firstRow.NewWatermarkvalue}'",
+							"value": "select * from dbo.dst_Priya\nwhere \n\tLastModifytime > '@{activity('Lookup old WMT data').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('Lookup dst for New').output.firstRow.NewWatermarkvalue}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
