@@ -1,0 +1,21 @@
+{
+	"name": "DS_Gen2_Jyothi_Sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_GEN2_IDL_JYOTHI_WM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
