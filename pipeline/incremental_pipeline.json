@@ -145,7 +145,7 @@
 				"typeProperties": {
 					"storedProcedureName": "[dbo].[usp_write_wm_onkar]",
 					"storedProcedureParameters": {
-						"LastModifytime": {
+						"LastModifiedtime": {
 							"value": {
 								"value": "@activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue\n ",
 								"type": "Expression"
