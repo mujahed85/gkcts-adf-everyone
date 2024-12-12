@@ -5,6 +5,9 @@
 			"referenceName": "LS_Sujay_SQL",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "IDL_Timestamp"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
