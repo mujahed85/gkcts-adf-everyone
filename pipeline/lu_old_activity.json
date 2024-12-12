@@ -142,8 +142,9 @@
 				"typeProperties": {
 					"storedProcedureName": "[dbo].[usp_write_wm_arnab]",
 					"storedProcedureParameters": {
-						"undefined": {
-							"value": ""
+						"LastModifiedDate": {
+							"value": "",
+							"type": "Datetime"
 						}
 					}
 				},
