@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from dst_anu",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -45,7 +46,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "Ds_anu_sql_source",
+						"referenceName": "watermark_value_anu",
 						"type": "DatasetReference"
 					}
 				}

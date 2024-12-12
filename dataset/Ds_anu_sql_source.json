@@ -2,7 +2,7 @@
 	"name": "Ds_anu_sql_source",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "watermark_sql",
+			"referenceName": "Ls_anu_sql_IDL",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -21,7 +21,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "wmt_anu"
+			"table": "dst_anu"
 		}
 	}
 }
