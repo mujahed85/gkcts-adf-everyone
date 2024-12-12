@@ -1,0 +1,22 @@
+{
+	"name": "DS_output_idl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_onkar_WM_gen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "wmonkaroutput"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": null
+		},
+		"schema": []
+	}
+}

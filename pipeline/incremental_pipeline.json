@@ -50,6 +50,94 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "copy_incremetal",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "source_main",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "watermark_count1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "select * from dst_onkar\n\nwhere \n\n\tLastModifytime > '@{activity('source_main').output.firstRow.WatermarkValue}' \n\n\tand \n\nLastModifytime <= '@{activity('watermark_count1').output.firstRow.NewWatermarkvalue}'\n ",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_sql_onkar_source",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_output_idl",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_write_wm_onkar]"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_onkar_WM_azsql",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
