@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup_oldwmt",
+				"name": "Lookup_oldwma",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "Lookup_newwmt",
+				"name": "Lookup_newwma",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -50,8 +50,109 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "Copydata_watermarkactivity",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Lookup_oldwma",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Lookup_newwma",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "select * from dst_anu \nwhere \n\tLastModifytime > '@{activity('Lookup_oldwma').output.firstRow.WatermarkValue}' \n\tand \nLastModifytime <= '@{activity('Lookup_Newwma').output.firstRow.NewWatermarkvalue}'",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Ds_anu_sql_source",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Ds_gen2_anu_wma",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copydata_watermarkactivity",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_write_wm_anu]"
+				},
+				"linkedServiceName": {
+					"referenceName": "Ls_anu_sql_IDL",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
+		"parameters": {
+			"WatermarkValue": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
