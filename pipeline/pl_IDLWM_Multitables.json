@@ -141,7 +141,10 @@
 									"referenceName": "DatasetSink",
 									"type": "DatasetReference",
 									"parameters": {
-										"SinkTableName": "@dataset().SinkTableName"
+										"SinkTableName": {
+											"value": "@{item().TABLE_NAME}",
+											"type": "Expression"
+										}
 									}
 								}
 							]
