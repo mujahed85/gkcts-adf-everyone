@@ -1,0 +1,19 @@
+{
+	"name": "SinkDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_sink_idl_wm",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SinkTableName",
+			"table": {
+				"value": "@dataset().sinkTableName",
+				"type": "Expression"
+			}
+		}
+	}
+}
