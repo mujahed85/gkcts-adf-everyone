@@ -1,0 +1,19 @@
+{
+	"name": "PL_Sujay_IDL_Multi",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
+		"parameters": {
+			"tablelList_sujay": {
+				"type": "array"
+			}
+		},
+		"annotations": []
+	}
+}
