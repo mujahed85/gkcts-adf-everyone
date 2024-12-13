@@ -135,7 +135,7 @@
 									"referenceName": "DatasetSink",
 									"type": "DatasetReference",
 									"parameters": {
-										"SinkTableName": "@dataset().SinkTableName"
+										"SinkTable": "@dataset().SinkTableName"
 									}
 								}
 							]
