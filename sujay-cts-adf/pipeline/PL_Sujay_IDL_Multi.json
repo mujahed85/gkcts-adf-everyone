@@ -144,7 +144,7 @@
 							]
 						},
 						{
-							"name": "Stored procedure1",
+							"name": "SP_WriteWatermark",
 							"type": "SqlServerStoredProcedure",
 							"dependsOn": [
 								{
@@ -161,7 +161,30 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": []
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[usp_write_watermark_sujay]",
+								"storedProcedureParameters": {
+									"LastModifiedtime": {
+										"value": {
+											"value": "@{activity('LU_New_WMA').output.firstRow.NewWatermarkvalue}",
+											"type": "Expression"
+										},
+										"type": "Datetime"
+									},
+									"TableName": {
+										"value": {
+											"value": "@{activity('LU_Old_WMA').output.firstRow.TableName}",
+											"type": "Expression"
+										},
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "LS_Sujay_SQL_IDLWM_Destination",
+								"type": "LinkedServiceReference"
+							}
 						}
 					]
 				}
