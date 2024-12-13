@@ -107,7 +107,7 @@
 								"sink": {
 									"type": "AzureSqlSink",
 									"sqlWriterStoredProcedureName": {
-										"value": "@{item().StoreProcedureNameForMergeOperation}",
+										"value": "@{item().StoredProcedureNameForMergeOperation}",
 										"type": "Expression"
 									},
 									"sqlWriterTableType": {
