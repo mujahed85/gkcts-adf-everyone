@@ -1,0 +1,19 @@
+{
+	"name": "P_IDL_SourceToDest",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
+		"parameters": {
+			"tablelist": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
