@@ -1,0 +1,26 @@
+{
+	"name": "pl_multipletables_wm_idl",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.tablelist_rudrani",
+						"type": "Expression"
+					},
+					"isSequential": true
+				}
+			}
+		],
+		"parameters": {
+			"tablelist_rudrani": {
+				"type": "array"
+			}
+		},
+		"annotations": []
+	}
+}
