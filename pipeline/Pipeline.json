@@ -11,25 +11,108 @@
 					"items": {
 						"value": "@pipeline().parameters.Tablelist_anu",
 						"type": "Expression"
-					}
+					},
+					"activities": [
+						{
+							"name": "Lookup_Oldwatermarkactivity",
+							"type": "Lookup",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"sqlReaderQuery": "select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"dataset": {
+									"referenceName": "WatermarkTable",
+									"type": "DatasetReference"
+								}
+							}
+						},
+						{
+							"name": "Lookup_Newwatermarkactivity",
+							"type": "Lookup",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"sqlReaderQuery": "select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}\n ",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"dataset": {
+									"referenceName": "SourceDataset",
+									"type": "DatasetReference"
+								}
+							}
+						},
+						{
+							"name": "Copy data watermarkactivity",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"sqlReaderQuery": {
+										"value": "select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('Look_Oldwatermarkactivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('Lookup_newwatermarkactivity').output.firstRow.NewWatermarkvalue}'\n ",
+										"type": "Expression"
+									},
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
 				}
 			}
 		],
 		"parameters": {
-			"Tablelist_anu": {
+			"tableList_anu": {
 				"type": "array",
 				"defaultValue": [
 					{
-						"TABLE_NAME": "customer_table",
+						"TABLE_NAME": "customer_table_anu",
 						"WaterMark_Column": "LastModifytime",
-						"TableType": "DataTypeforCustomerTable",
-						"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
+						"TableType": "DataTypeforCustomerTable_anu",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table_anu"
 					},
 					{
-						"TABLE_NAME": "project_table",
+						"TABLE_NAME": "project_table_anu",
 						"WaterMark_Column": "Creationtime",
-						"TableType": "DataTypeforProjectTable",
-						"StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
+						"TableType": "DataTypeforProjectTable_anu",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_project_table_anu"
 					}
 				]
 			}
