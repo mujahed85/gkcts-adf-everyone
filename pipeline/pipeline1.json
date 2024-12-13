@@ -185,7 +185,7 @@
 			}
 		],
 		"parameters": {
-			"TableName_onkar": {
+			"TableName": {
 				"type": "array",
 				"defaultValue": [
 					{
