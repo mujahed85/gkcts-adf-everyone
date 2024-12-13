@@ -1,20 +1,6 @@
 {
 	"name": "PL_IDL_WM_MultiTables",
 	"properties": {
-		"activities": [
-			{
-				"name": "ForEach1",
-				"type": "ForEach",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@pipeline().parameters.tableList_mujahed",
-						"type": "Expression"
-					}
-				}
-			}
-		],
 		"parameters": {
 			"tableList_mujahed": {
 				"type": "array"
