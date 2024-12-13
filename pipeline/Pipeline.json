@@ -194,7 +194,7 @@
 			}
 		],
 		"parameters": {
-			"tableList_anu": {
+			"TableList_Anu": {
 				"type": "array",
 				"defaultValue": [
 					{
