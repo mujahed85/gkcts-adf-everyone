@@ -2,11 +2,15 @@
 	"name": "watermarkDataset",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_sql_idl_wm",
+			"referenceName": "ls_sql_sink_idl_wm",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "watermarktable_arnab"
+		}
 	}
 }
