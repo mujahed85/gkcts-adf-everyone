@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"SinkTableName": {
+			"SinkTable": {
 				"type": "string",
 				"defaultValue": "@dataset().SinkTableName"
 			}
