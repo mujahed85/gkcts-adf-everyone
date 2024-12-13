@@ -141,7 +141,7 @@
 									"referenceName": "DS_Sujay_SQL_Destination",
 									"type": "DatasetReference",
 									"parameters": {
-										"SinkTableName": {
+										"SinkTable": {
 											"value": "@item().TABLE_NAME",
 											"type": "Expression"
 										}
