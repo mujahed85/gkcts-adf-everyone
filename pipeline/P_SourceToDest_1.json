@@ -1,6 +1,25 @@
 {
 	"name": "P_SourceToDest_1",
 	"properties": {
+		"parameters": {
+			"tablelist": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"TABLE_NAME": "customer_table_NAME",
+						"WaterMark_Column": "LastModifytime",
+						"TableType": "DataTypeforCustomerTable_NAME",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table_NAME"
+					},
+					{
+						"TABLE_NAME": "project_table_NAME",
+						"WaterMark_Column": "Creationtime",
+						"TableType": "DataTypeforProjectTable_NAME",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_project_table_NAME"
+					}
+				]
+			}
+		},
 		"annotations": []
 	}
 }
