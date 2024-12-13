@@ -11,7 +11,22 @@
 					"items": {
 						"value": "@pipeline().parameters.tablelList_sujay",
 						"type": "Expression"
-					}
+					},
+					"activities": [
+						{
+							"name": "LU_Old_WMA",
+							"type": "Lookup",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": []
+						}
+					]
 				}
 			}
 		],
