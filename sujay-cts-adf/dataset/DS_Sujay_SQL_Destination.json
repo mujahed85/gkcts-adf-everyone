@@ -7,12 +7,17 @@
 		},
 		"parameters": {
 			"SinkTableName": {
-				"type": "string",
-				"defaultValue": "@dataset().SinkTableName"
+				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"table": {
+				"value": "@dataset().SinkTableName",
+				"type": "Expression"
+			}
+		}
 	}
 }
