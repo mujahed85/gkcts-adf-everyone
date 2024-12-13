@@ -19,10 +19,6 @@
 						"type": "AzureSqlSource",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "WatermarkDataset",
-						"type": "DatasetReference"
 					}
 				}
 			},
@@ -44,10 +40,6 @@
 						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from dst_mujahed",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "DS_SQL_Mujahed_Source",
-						"type": "DatasetReference"
 					}
 				}
 			},
@@ -97,28 +89,8 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "DS_SQL_Mujahed_Source",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DS_Gen2_Mujahed_Sink",
-						"type": "DatasetReference"
-					}
-				]
+					"enableStaging": false
+				}
 			},
 			{
 				"name": "StoredProceduretoWriteWatermarkActivity",
