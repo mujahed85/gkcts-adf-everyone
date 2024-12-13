@@ -166,7 +166,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"storedProcedureName": "[dbo].[usp_write_watermark_anu]",
+								"storedProcedureName": "[dbo].[usp_upsert_customer_table_anu]",
 								"storedProcedureParameters": {
 									"LastModifiedtime": {
 										"value": {
