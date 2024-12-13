@@ -1,10 +1,6 @@
 {
 	"name": "ds_sql_rudrani_source",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_sql_idl_wm",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [

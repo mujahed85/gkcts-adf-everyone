@@ -1,10 +1,6 @@
 {
 	"name": "ds_gen2_rudrani_sink",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_gen2_idl_wm",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

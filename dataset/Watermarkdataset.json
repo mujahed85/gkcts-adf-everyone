@@ -1,10 +1,6 @@
 {
 	"name": "Watermarkdataset",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_sql_idl_wm",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
