@@ -176,6 +176,10 @@
 										"type": "String"
 									}
 								}
+							},
+							"linkedServiceName": {
+								"referenceName": "LS_SQL _Dest_WM",
+								"type": "LinkedServiceReference"
 							}
 						}
 					]
