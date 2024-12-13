@@ -177,7 +177,7 @@
 									},
 									"TableName": {
 										"value": {
-											"value": "@activity('Lookup_Oldwatermarkactivity').output.firstRow.TableName",
+											"value": "@activity('Lookup_Oldwatermarkactivity').output.firstRow.Table_Name",
 											"type": "Expression"
 										},
 										"type": "String"
