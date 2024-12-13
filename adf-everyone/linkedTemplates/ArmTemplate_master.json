@@ -7,19 +7,35 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-everyone"
 		},
-		"LS_SQL_IDL_WM_password": {
+		"LS_Sujay_SQL_IDLWM_Destination_password": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_SQL_IDL_WM'"
+			"metadata": "Secure string for 'password' of 'LS_Sujay_SQL_IDLWM_Destination'"
 		},
-		"LS_SQL_IDL_WM_properties_typeProperties_server": {
+		"LS_Sujay_SQL_IDLWM_Source_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_Sujay_SQL_IDLWM_Source'"
+		},
+		"LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "sqlserver4everyone.database.windows.net"
 		},
-		"LS_SQL_IDL_WM_properties_typeProperties_database": {
+		"LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_database": {
 			"type": "string",
-			"defaultValue": "dbeveryone"
+			"defaultValue": "idl-wm-destinationdb"
 		},
-		"LS_SQL_IDL_WM_properties_typeProperties_userName": {
+		"LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminuser"
+		},
+		"LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlserver4everyone.database.windows.net"
+		},
+		"LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "idl-wm-sourcedb"
+		},
+		"LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "adminuser"
 		},
@@ -50,17 +66,29 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"LS_SQL_IDL_WM_password": {
-						"value": "[parameters('LS_SQL_IDL_WM_password')]"
+					"LS_Sujay_SQL_IDLWM_Destination_password": {
+						"value": "[parameters('LS_Sujay_SQL_IDLWM_Destination_password')]"
 					},
-					"LS_SQL_IDL_WM_properties_typeProperties_server": {
-						"value": "[parameters('LS_SQL_IDL_WM_properties_typeProperties_server')]"
+					"LS_Sujay_SQL_IDLWM_Source_password": {
+						"value": "[parameters('LS_Sujay_SQL_IDLWM_Source_password')]"
 					},
-					"LS_SQL_IDL_WM_properties_typeProperties_database": {
-						"value": "[parameters('LS_SQL_IDL_WM_properties_typeProperties_database')]"
+					"LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_server": {
+						"value": "[parameters('LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_server')]"
 					},
-					"LS_SQL_IDL_WM_properties_typeProperties_userName": {
-						"value": "[parameters('LS_SQL_IDL_WM_properties_typeProperties_userName')]"
+					"LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_database": {
+						"value": "[parameters('LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_database')]"
+					},
+					"LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_userName": {
+						"value": "[parameters('LS_Sujay_SQL_IDLWM_Destination_properties_typeProperties_userName')]"
+					},
+					"LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_server": {
+						"value": "[parameters('LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_server')]"
+					},
+					"LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_database": {
+						"value": "[parameters('LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_database')]"
+					},
+					"LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_userName": {
+						"value": "[parameters('LS_Sujay_SQL_IDLWM_Source_properties_typeProperties_userName')]"
 					}
 				}
 			},
