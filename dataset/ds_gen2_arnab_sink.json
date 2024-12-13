@@ -17,10 +17,7 @@
 					"value": "@concat('IDL-WM-',pipeline().RunId,'.txt')",
 					"type": "Expression"
 				},
-				"fileSystem": {
-					"value": "output_wm_idl_arnab",
-					"type": "Expression"
-				}
+				"fileSystem": "ct12decarnab"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
