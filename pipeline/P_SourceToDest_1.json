@@ -1,6 +1,14 @@
 {
 	"name": "P_SourceToDest_1",
 	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
 		"parameters": {
 			"tablelist": {
 				"type": "array",
