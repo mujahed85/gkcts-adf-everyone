@@ -36,7 +36,7 @@
 									"partitionOption": "None"
 								},
 								"dataset": {
-									"referenceName": "watermarkdatase",
+									"referenceName": "WatermarkTable",
 									"type": "DatasetReference"
 								}
 							}
@@ -185,7 +185,7 @@
 			}
 		],
 		"parameters": {
-			"TableName": {
+			"TableName_onkar": {
 				"type": "array",
 				"defaultValue": [
 					{
