@@ -15,7 +15,7 @@
 		"schema": [],
 		"typeProperties": {
 			"table": {
-				"value": "@dataset().SinkTableName",
+				"value": "@dataset().SinkTable",
 				"type": "Expression"
 			}
 		}
