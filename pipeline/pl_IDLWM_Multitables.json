@@ -109,7 +109,7 @@
 										"type": "Expression"
 									},
 									"storedProcedureTableTypeParameterName": {
-										"value": "@{item().TableName}",
+										"value": "@{item().TABLE_NAME}",
 										"type": "Expression"
 									},
 									"disableMetricsCollection": false
@@ -182,9 +182,22 @@
 			}
 		],
 		"parameters": {
-			"tableList_bharath": {
+			"TableList_bharath": {
 				"type": "array",
-				"defaultValue": "[     {         \"TABLE_NAME\": \"customer_table_bharath\",         \"WaterMark_Column\": \"LastModifytime\",         \"TableType\": \"DataTypeforCustomerTable_bharath\",         \"StoredProcedureNameForMergeOperation\": \"usp_upsert_customer_table_bharath\"     },     {         \"TABLE_NAME\": \"project_table_bharath\",         \"WaterMark_Column\": \"Creationtime\",         \"TableType\": \"DataTypeforProjectTable_bharath\",         \"StoredProcedureNameForMergeOperation\": \"usp_upsert_project_table_bharath\"     } ]"
+				"defaultValue": [
+					{
+						"TABLE_NAME": "customer_table_bharath",
+						"WaterMark_Column": "LastModifytime",
+						"TableType": "DataTypeforCustomerTable_bharath",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table_bharath"
+					},
+					{
+						"TABLE_NAME": "project_table_bharath",
+						"WaterMark_Column": "Creationtime",
+						"TableType": "DataTypeforProjectTable_bharath",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_project_table_bharath"
+					}
+				]
 			}
 		},
 		"annotations": []
