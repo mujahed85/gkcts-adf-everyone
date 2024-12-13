@@ -142,14 +142,14 @@
 				"typeProperties": {
 					"storedProcedureName": "[dbo].[usp_write_wm_arnab]",
 					"storedProcedureParameters": {
-						"LastModifiedDate": {
+						"LastModifiedtime": {
 							"value": {
 								"value": "@activity('lu_new_wm_activity').output.firstRow.NewWatermarkvalue",
 								"type": "Expression"
 							},
 							"type": "Datetime"
 						},
-						"Table Name": {
+						"TableName": {
 							"value": {
 								"value": "@activity('lu_old_wm_activity').output.firstRow.TableName",
 								"type": "Expression"
