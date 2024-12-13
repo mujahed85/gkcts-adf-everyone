@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "IterateSql",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -28,7 +28,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": "select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'",
+									"sqlReaderQuery": {
+										"value": "select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
@@ -53,7 +56,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": "select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}\n ",
+									"sqlReaderQuery": {
+										"value": "select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}\n ",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
@@ -79,7 +85,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('Look_Oldwatermarkactivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('Lookup_newwatermarkactivity').output.firstRow.NewWatermarkvalue}'\n ",
+										"value": "select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('Lookup_Oldwatermarkactivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('Lookup_Newwatermarkactivity').output.firstRow.NewWatermarkvalue}'",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
