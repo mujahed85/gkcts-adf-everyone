@@ -177,7 +177,21 @@
 		],
 		"parameters": {
 			"tableList_mujahed": {
-				"type": "array"
+				"type": "array",
+				"defaultValue": [
+					{
+						"TABLE_NAME": "customer_table_mujahed",
+						"WaterMark_Column": "LastModifytime",
+						"TableType": "DataTypeforCustomerTable_mujahed",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table_mujahed"
+					},
+					{
+						"TABLE_NAME": "project_table_mujahed",
+						"WaterMark_Column": "Creationtime",
+						"TableType": "DataTypeforProjectTable_mujahed",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_project_table_mujahed"
+					}
+				]
 			}
 		},
 		"annotations": []
