@@ -1,0 +1,19 @@
+{
+	"name": "DS_sql_onkar_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sql_onkar_destination",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SinkTableName": {
+				"type": "string",
+				"defaultValue": "@dataset().SinkTableName"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
