@@ -106,7 +106,18 @@
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"sqlWriterStoredProcedureName": "[dbo].[usp_write_watermark_anu]",
+									"sqlWriterStoredProcedureName": {
+										"value": "@{item().StoreProcedureNameForMergeOperation}",
+										"type": "Expression"
+									},
+									"sqlWriterTableType": {
+										"value": "@{item().TableType}",
+										"type": "Expression"
+									},
+									"storedProcedureTableTypeParameterName": {
+										"value": "@{item().TABLE_NAME}",
+										"type": "Expression"
+									},
 									"disableMetricsCollection": false
 								},
 								"enableStaging": false,
@@ -136,7 +147,7 @@
 							]
 						},
 						{
-							"name": "Stored procedure1",
+							"name": "Sp-incremental_wma_multiple",
 							"type": "SqlServerStoredProcedure",
 							"dependsOn": [
 								{
@@ -158,11 +169,17 @@
 								"storedProcedureName": "[dbo].[usp_write_watermark_anu]",
 								"storedProcedureParameters": {
 									"LastModifiedtime": {
-										"value": "",
+										"value": {
+											"value": "@{activity('Lookup_Newwatermarkactivity').output.firstRow.NewWaterMarkValue}",
+											"type": "Expression"
+										},
 										"type": "Datetime"
 									},
 									"TableName": {
-										"value": "",
+										"value": {
+											"value": "@activity('Lookup_Oldwatermarkactivity').output.firstRow.TableName",
+											"type": "Expression"
+										},
 										"type": "String"
 									}
 								}
