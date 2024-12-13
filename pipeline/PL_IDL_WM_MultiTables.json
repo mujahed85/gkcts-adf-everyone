@@ -34,6 +34,10 @@
 									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
+								},
+								"dataset": {
+									"referenceName": "DS_sql_watermark",
+									"type": "DatasetReference"
 								}
 							}
 						},
@@ -98,22 +102,42 @@
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"sqlWriterStoredProcedureName": {
-										"value": "@{item().StoredProcedureNameForMergeOperation}",
-										"type": "Expression"
-									},
+									"sqlWriterStoredProcedureName": "@{item().StoredProcedureNameForMergeOperation}",
 									"sqlWriterTableType": {
 										"value": "@{item().TableType}",
 										"type": "Expression"
 									},
-									"storedProcedureTableTypeParameterName": {
-										"value": "@{item().TABLE_NAME}",
-										"type": "Expression"
-									},
+									"storedProcedureTableTypeParameterName": "@{item().TABLE_NAME}",
 									"disableMetricsCollection": false
 								},
-								"enableStaging": false
-							}
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_Sql_source",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DS_sql_dest",
+									"type": "DatasetReference",
+									"parameters": {
+										"SinkTableName": {
+											"value": "@{item().TABLE_NAME}",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						},
 						{
 							"name": "StoredProceduretoWriteWatermarkActivity",
