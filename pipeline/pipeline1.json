@@ -1,0 +1,33 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
+		"parameters": {
+			"TableName_onkar": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"TABLE_NAME": "customer_table_onkar",
+						"WaterMark_Column": "LastModifytime",
+						"TableType": "DataTypeforCustomerTable_onkar",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table_onkar"
+					},
+					{
+						"TABLE_NAME": "project_table_onkar",
+						"WaterMark_Column": "Creationtime",
+						"TableType": "DataTypeforProjectTable_onkar",
+						"StoredProcedureNameForMergeOperation": "usp_upsert_project_table_onkar"
+					}
+				]
+			}
+		},
+		"annotations": []
+	}
+}
