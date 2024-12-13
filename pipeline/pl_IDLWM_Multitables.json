@@ -1,0 +1,69 @@
+{
+	"name": "pl_IDLWM_Multitables",
+	"properties": {
+		"activities": [
+			{
+				"name": "IterateSQLTables",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.tableList_Bharath",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "LookupOldWaterMarkActivity",
+							"type": "Lookup",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"sqlReaderQuery": {
+										"value": "select * from watermarktable_bharath where TableName  =  '@{item().TABLE_NAME}'",
+										"type": "Expression"
+									},
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"dataset": {
+									"referenceName": "WaterMarkDataset",
+									"type": "DatasetReference"
+								}
+							}
+						},
+						{
+							"name": "LookupNewWaterMarkActivy",
+							"type": "Lookup",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": []
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"tableList_bharath": {
+				"type": "array",
+				"defaultValue": "[     {         \"TABLE_NAME\": \"customer_table_bharath\",         \"WaterMark_Column\": \"LastModifytime\",         \"TableType\": \"DataTypeforCustomerTable_bharath\",         \"StoredProcedureNameForMergeOperation\": \"usp_upsert_customer_table_bharath\"     },     {         \"TABLE_NAME\": \"project_table_bharath\",         \"WaterMark_Column\": \"Creationtime\",         \"TableType\": \"DataTypeforProjectTable_bharath\",         \"StoredProcedureNameForMergeOperation\": \"usp_upsert_project_table_bharath\"     } ]"
+			}
+		},
+		"annotations": []
+	}
+}
