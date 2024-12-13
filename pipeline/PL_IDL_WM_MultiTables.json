@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@pipeline().parameters.tableList",
+						"value": "@pipeline().parameters.tableList_mujahed",
 						"type": "Expression"
 					},
 					"activities": [
