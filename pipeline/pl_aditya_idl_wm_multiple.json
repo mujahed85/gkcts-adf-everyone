@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "IterateSQLTables",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -11,27 +11,40 @@
 					"items": {
 						"value": "@pipeline().parameters.tablelist_Aditya",
 						"type": "Expression"
-					}
+					},
+					"activities": [
+						{
+							"name": "LookupOldWaterActivity",
+							"type": "Lookup",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"dataset": {
+									"referenceName": "ds_watermark",
+									"type": "DatasetReference"
+								}
+							}
+						}
+					]
 				}
 			}
 		],
 		"parameters": {
 			"tablelist_Aditya": {
 				"type": "array",
-				"defaultValue": [
-					{
-						"TABLE_NAME": "customer_table",
-						"WaterMark_Column": "LastModifytime",
-						"TableType": "DataTypeforCustomerTable",
-						"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
-					},
-					{
-						"TABLE_NAME": "project_table",
-						"WaterMark_Column": "Creationtime",
-						"TableType": "DataTypeforProjectTable",
-						"StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
-					}
-				]
+				"defaultValue": "[     {         \"TABLE_NAME\": \"customer_table_aditya\",         \"WaterMark_Column\": \"LastModifytime\",         \"TableType\": \"DataTypeforCustomerTable_aditya\",         \"StoredProcedureNameForMergeOperation\": \"usp_upsert_customer_table_aditya\"     },     {         \"TABLE_NAME\": \"project_table_aditya\",         \"WaterMark_Column\": \"Creationtime\",         \"TableType\": \"DataTypeforProjectTable_aditya\",         \"StoredProcedureNameForMergeOperation\": \"usp_upsert_project_table_aditya\"     } ]"
 			}
 		},
 		"annotations": []
