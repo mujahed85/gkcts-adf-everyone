@@ -80,7 +80,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from dst_arnab\r\nwhere \r\n\tLastModifytime > '@{activity('lu_old_wm_activity').output.firstRow.WatermarkValue}' \r\n\tand \r\n    LastModifytime <= '@{activity('lu_new_wm_activity').output.firstRow.NewWatermarkvalue}'   ",
+							"value": "select * from dst_arnab\nwhere \n\tLastModifytime > '@{activity('lu_old_wm_activity').output.firstRow.WatermarkValue}' \n\tand \n    LastModifytime <= '@{activity('lu_new_wm_activity').output.firstRow.NewWatermarkvalue}'   ",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
