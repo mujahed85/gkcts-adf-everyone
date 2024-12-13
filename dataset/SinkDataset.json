@@ -7,8 +7,7 @@
 		},
 		"parameters": {
 			"SinkTableName": {
-				"type": "string",
-				"defaultValue": "@dataset().SinkTableName"
+				"type": "string"
 			}
 		},
 		"annotations": [],
